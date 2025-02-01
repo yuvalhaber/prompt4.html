@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מכון מו"פ השלישי המלאכותי</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Heebo', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #1a1a2e);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, #1a1a2e 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .principle-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .principle-card.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .principle-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #4facfe;
+            margin-bottom: 1rem;
+        }
+
+        .principle-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .principle-content {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .example {
+            background: rgba(79, 172, 254, 0.1);
+            border-right: 4px solid #4facfe;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, #4facfe 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>מכון מו"פ השלישי המלאכותי</h1>
+            <p style="font-size: 1.5rem; color: rgba(255, 255, 255, 0.9);">מדריך מקיף ליצירת פרומפטים אפקטיביים</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="principle-card">
+            <div class="principle-number">01</div>
+            <h2 class="principle-title">הגדרת תפקיד ממוקד</h2>
+            <div class="principle-content">
+                <p>התחילו כל פרומפט עם הגדרה ברורה של התפקיד שאתם רוצים שה-AI ימלא.</p>
+                <div class="example">
+                    <strong>דוגמה:</strong><br>
+                    "היי יועצת חינוכית, אני אתאר לך מקרה של התמודדות עם קשיים חברתיים בכיתה ז', ואשמח לקבל ממך ניתוח והמלצות להתערבות חינוכית"
+                </div>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <div class="principle-number">02</div>
+            <h2 class="principle-title">הגדרת תשומות ותפוקות</h2>
+            <div class="principle-content">
+                <p>פרטו בדיוק מה אתם הולכים לספק ומה אתם מצפים לקבל בחזרה.</p>
+                <div class="example">
+                    <strong>דוגמה:</strong><br>
+                    "אספק לך תיאור מקרה של קשיי הסתגלות חברתית בקרב תלמידים, ואני מצפה לקבל:<br>
+                    1. ניתוח של גורמי הקושי<br>
+                    2. המלצות להתערבות מיידית<br>
+                    3. תכנית ליווי ארוכת טווח"
+                </div>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <div class="principle-number">03</div>
+            <h2 class="principle-title">מתן הקשר ועומק</h2>
+            <div class="principle-content">
+                <p>ספקו כמה שיותר פרטי רקע והקשר לבקשה שלכם.</p>
+                <div class="example">
+                    <strong>דוגמה:</strong><br>
+                    "אני יועצת בבית ספר תיכון שבו יש אתגרים חברתיים משמעותיים בין התלמידים. בית הספר נמצא במגזר דתי, וחשוב לי להתאים את ההתערבות לרגישות התרבותית של הקהילה."
+                </div>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <div class="principle-number">04</div>
+            <h2 class="principle-title">אספקת חומרי עזר</h2>
+            <div class="principle-content">
+                <p>צרפו כמה שיותר חומרי עזר רלוונטיים לבקשה שלכם.</p>
+                <div class="example">
+                    <strong>דוגמה:</strong><br>
+                    "אצרף: תיאורי מקרה מפורטים, נהלי משרד החינוך הרלוונטיים, מחקרים עדכניים בתחום הייעוץ החינוכי, ודוגמאות להתערבויות מוצלחות"
+                </div>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <div class="principle-number">05</div>
+            <h2 class="principle-title">שיפור איטרטיבי</h2>
+            <div class="principle-content">
+                <p>המשיכו לשפר ולדייק את הפרומפט עד לקבלת התוצאה הרצויה.</p>
+                <div class="example">
+                    <strong>טיפ:</strong><br>
+                    "התחילו עם פרומפט בסיסי והוסיפו או שנו פרטים בהתאם לתוצאות שאתם מקבלים"
+                </div>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <div class="principle-number">06</div>
+            <h2 class="principle-title">בקשת מספר חלופות</h2>
+            <div class="principle-content">
+                <p>בקשו מה-AI לספק מספר אפשרויות או גישות שונות.</p>
+                <div class="example">
+                    <strong>דוגמה:</strong><br>
+                    "אנא הצע 3 גישות שונות להתמודדות עם אתגרים חברתיים בכיתה, כולל היתרונות והחסרונות של כל גישה מבחינה חינוכית ואתית"
+                </div>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <div class="principle-number">07</div>
+            <h2 class="principle-title">אימות ובדיקה</h2>
+            <div class="principle-content">
+                <p>אל תקבלו את התשובות כמובנות מאליהן - תמיד בדקו ואמתו.</p>
+                <div class="example">
+                    <strong>טיפ:</strong><br>
+                    "בדקו את ההמלצות מול הנחיות משרד החינוך והמחקר העדכני בתחום הייעוץ החינוכי, ווודאו שההתערבויות המוצעות מתאימות להקשר התרבותי והגיל"
+                </div>
+            </div>
+        </div>
+
+        <div class="principle-card">
+            <div class="principle-number">08</div>
+            <h2 class="principle-title">עידוד שאילת שאלות</h2>
+            <div class="principle-content">
+                <p>בקשו מה-AI לשאול שאלות כשמשהו לא ברור.</p>
+                <div class="example">
+                    <strong>דוגמה:</strong><br>
+                    "אם משהו לא ברור או חסר מידע חיוני, אנא שאל לפני שתמשיך"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 10 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Initialize GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate cards on scroll
+        document.querySelectorAll('.principle-card').forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom-=100",
+                    toggleClass: "active",
+                    once: true
+                },
+                duration: 1,
+                delay: index * 0.2
+            });
+        });
+    </script>
+</body>
+</html>
